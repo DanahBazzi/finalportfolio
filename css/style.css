@@ -5,11 +5,12 @@ body {
     background-color: #fff5ee;  
 }
 
-/*style images to acceptable width and height
+/*image size for mobile view*/
 img {
     max-width: 100%;
     height: auto;
-}*/
+}
+
 /*set the background color for the header*/
 header {
     background-color: #fff0f5;
@@ -25,17 +26,20 @@ header {
 }
 
 /*skip to main content link*/
-.skip_to_main_content {
-    text-align: left;
+a.skip_to_main_content {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: 1;
 }
 
-/*position: absolute;
-    top: -20px;
-    z-index: 1;*/
+a.skip_to_main_content:focus {
+    top: 20px;
+}
 
 /*style the navigation bar*/
 nav {
-    font-family: "Tahoma", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     font-size: 15px;
     border-top: 3px solid #dda0dd;
     border-bottom: 3px solid #dda0dd;
@@ -137,6 +141,10 @@ a:visited {
     grid-row-gap: 1px;
 }
 
+.drawings_text {
+    border-bottom: 3px solid #dda0dd;
+}
+
 #gallery_text {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
@@ -193,7 +201,7 @@ footer {
 
 /*drawings, paintings, textile art page image galleries*/
 .watercolors, .acrylics, .pencil, .pastels,
-.phoebe, .knit_and_crochet, .sewing {
+.phoebe, .knit_and_crochet, .sewing, .felting {
     display: flex;
     flex-basis: 200px;
     flex-flow: column wrap;
@@ -201,7 +209,7 @@ footer {
 }
 
 .watercolors img, .acrylics img, .pencil img, .pastels img,
-.phoebe img, .knit_and_crochet img, .sewing img {
+.phoebe img, .knit_and_crochet img, .sewing img, .felting img {
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 8px;
@@ -222,12 +230,41 @@ footer {
         text-align: center;
     }
 
+/*center text for headings*/    
     #welcome_heading, #drawings_heading, 
     #paintings_heading, #textiles_heading {
         text-align: center;
     }
 
-    /*parallax image*/
+/*adjust navigation bar*/    
+    .webpage_navigation {
+        padding-left: 5px;
+    }
+
+/*set background color for image galleries*/    
+    .background_color, .watercolors, .acrylics,
+    .knit_and_crochet, .sewing, .felting, .phoebe_image_background {
+        background-color: #faf0e6;
+    }
+
+/*format text on intro page*/
+    .introductory_text {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .concluding_text {
+        padding-top: 25px;
+    }
+
+/*reformat the intro header*/    
+    #portfolio_name {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-size: 2.2em;
+    }
+
+/*parallax image*/
 .introductory_text, .concluding_text {
     background-image: url("../images/parallax_image.jpg");
     height: 100px;
@@ -237,16 +274,88 @@ footer {
     background-size: cover;
 }
 
+.drawings_text, #drawings_intro_text, .paintings_text, .textiles_text {
+    background-image: url("../images/parallax_image.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.drawings_text {
+    border-bottom: 3px solid #dda0dd;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+/*set images for desktop view*/
+.pastels img, .pencil img, .phoebe img, .watercolors img,
+.acrylics img, .knit_and_crochet img, .sewing img, .felting img, .flip_card img {
+    max-width: 100%;
+    height: 300px;
+}
 
 /*drawings, paintings, textile art page image galleries*/
 .watercolors, .acrylics, .pencil, .pastels,
-.phoebe, .knit_and_crochet, .sewing {
+.phoebe, .knit_and_crochet, .sewing, .felting {
     display: flex;
     flex-basis: 200px;
     flex-flow: row wrap;
     justify-content: center;
 }
+
+body {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/*reformat the headings on each page*/
+h2 {
+    text-align: center;
+}
+
+#pastel_heading, #pencil_heading, 
+#watercolors_heading, #acrylics_heading, #phoebe_heading,
+#yarn_heading, #sewing_heading, #felting_heading,
+ #drawings_heading, #welcome_heading, #paintings_heading, #textiles_heading { 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*format the text on each page*/
+#drawings_intro_text, .drawings_text, .paintings_text,
+.textiles_text, .intro_text {
+    text-align: center;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+/*reformat the intro gallery*/
+.intro_text {
+    text-align: center;
+    font-weight: 400;
+}
+
+.site_intro {
+    padding-left: 475px;
+}
+
+/*reformat the footer*/
+.footer {
+    grid-template-columns: 300px 300px 300px 300px 300px 300px; 
+}
+
+.footer_text {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 2;
+}
+
+footer {
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+
 }
 
 /*prefers reduced motion media query*/
@@ -267,13 +376,137 @@ footer {
     border: 1px solid #800080;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+
+/*style for the form*/
+body {
+    font-family: "Century Gothic", "Trebuchet", sans-serif;
+  }
+  
+  form {
+    border: 3px solid  #dda0dd;
+  }
+  
+  legend{ 
+    font-size: 125%;
+    font-style:italic;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  label{
+    display: inline-block;
+    margin:10px;
+    width:15%;
+  }
+#cBox {
+    margin-left: 10px;
+}
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  span{
+    margin-left:20%;
+    font-family: italic;
+    font-weight: bold;
+  }
+  
+  textarea{
+    width: 100%;
+    height: 35vh;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  
+  input[type=checkbox]{
+      display:inline;
+      width:inherit;
+  }
+  
+  input[type=submit] {
+    background-color: #800080;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  input[type=submit]:hover {
+    opacity: 0.8;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (min-width: 770px) {
+    form{
+      width: 80%;
+      margin: 0 auto;
+    }
+  
+    input{
+      width:80%;
+    }
+  
+    textarea{
+      width:80%;
+      height: 25vh;
+   }
+   
+   div + label{
+      line-height: 25vh;
+      vertical-align:top;
+   }
+  }
+
+/*flip card*/
+.phoebe_flip_card {
+    background-color: transparent;
+    width: 268px;
+    height: 305px;
+    perspective: 1000px;
+    padding-left: 525px;
 }
 
+.phoebe_flip_card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
 
+.phoebe_flip_card:hover .phoebe_flip_card_inner {
+    transform: rotateY(180deg);
+}
 
+.phoebe_flip_card_front, .phoebe_flip_card_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 
+.phoebe_flip_card_front {
+    background-color: orchid;
+    color: black;
+}
 
+.phoebe_flip_card_back {
+    background-color: violet;
+    color: cornsilk;
+    transform: rotateY(180deg);
+}
 
