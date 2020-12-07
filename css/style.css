@@ -178,7 +178,7 @@ a:visited {
 }
 
 /*style images when hovered over*/
-.watercolors img:hover {
+img:hover {
     opacity: 0.5;
     border: 2px solid black;
 }
