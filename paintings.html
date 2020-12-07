@@ -37,22 +37,24 @@
         <h2 id="watercolors_heading">Watercolor Paintings</h2>
         <br>
         <div class="watercolors">
-            <img id="watercolor_painting_1" src="images/mackinac_arch_rock.jpg" alt="mackinac island's lakefront arch rock">
-            <img id="watercolor_painting_2" src="images/lake_and_trees.jpg" alt="a lake surrounded by trees in the summertime">
-            <img id="watercolor_painting_3" src="images/kensington_metropark_lake.jpg" alt="kent lake surrounded by trees and a bike path">
-            <img id="watercolor_painting_4" src="images/mountains_lake.jpg" alt="a mountain range and a lake">
-            <img id="watercolor_painting_5" src="images/house_woods.jpg" alt="house surrounded by a lake">
+            <img id="watercolor_painting_1" class="watercolors_image" src="images/mackinac_arch_rock.jpg" alt="mackinac island's lakefront arch rock">
+            <img id="watercolor_painting_2" class="watercolors_image" src="images/lake_and_trees.jpg" alt="a lake surrounded by trees in the summertime">
+            <img id="watercolor_painting_3" class="watercolors_image" src="images/kensington_metropark_lake.jpg" alt="kent lake surrounded by trees and a bike path">
+            <img id="watercolor_painting_4" class="watercolors_image" src="images/mountains_lake.jpg" alt="a mountain range and a lake">
+            <img id="watercolor_painting_5" class="watercolors_image" src="images/house_woods.jpg" alt="house surrounded by a lake">
+            <div class="modal">
+                <span class="close">&times;</span>
+                <img class="modalImage" src="" alt="">
+            </div> 
 
 
         </div>
         <br>
         <h2 id="acrylics_heading">Acrylic Paintings</h2>
         <br>
-        <div id="the_modal" class="modal">
-            <span class="close">&times;</span>
-            <div id="the_caption"></div>
+        
         <div class="acrylics">
-        <img onclick="enlargeImage()" id="acrylic_painting_1" class="acrylic_image" src="images/forest.jpg" alt="a forest with a castle tower and stone path">
+        <img id="acrylic_painting_1" class="acrylic_image" onclick="enlargeImage()" src="images/forest.jpg" alt="a forest with a castle tower and stone path">
         <img id="acrylic_painting_2" class="acrylic_image" src="images/trees_and_river.jpg" alt="trees along the riverbank">
         <img id="acrylic_painting_3" class="acrylic_image" src="images/lake_sunset.jpg" alt="sunset over a lake">
         <img id="acrylic_painting_4" class="acrylic_image" src="images/adirondack_mountains.JPG" alt="adirondack mountains overlooking a lake">
@@ -61,14 +63,36 @@
         <img id="acrylic_painting_7" class="acrylic_image" src="images/trees_and_lake.jpg" alt="trees surrounding a lake">
         <img id="acrylic_painting_8" class="acrylic_image" src="images/clouds_background.jpg" alt="various clouds against a blue sky">
         <img id="acrylic_painting_9" class="acrylic_image" src="images/adirondacks_lake.jpg" alt="lake and trees in front of the adirondack mountains">
+        <div class="modal">
+            <span class="close">&times;</span>
+            <img class="modalImage" src="" alt="">
         </div>
-        </div>
+    </div>
         <br>
 
     </main>
+    <br>
     <footer>
-        <p class="footer_text">Danah's Art Portfolio - Explore paintings, drawings, and textile art!</p>
+        <p class="footer_text">Danah's Art Portfolio : Explore paintings, drawings, and textile art!</p>
     </footer>
-    
+    <script>
+        let modalElement = document.querySelector(".modal");
+        let modalImage = document.querySelector(".modalImage");
+        Array.from(document.querySelectorAll(".watercolors_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        Array.from(document.querySelectorAll(".acrylic_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        document.querySelector(".close").addEventListener("click", () => {
+            modalElement.style.display="none";
+        });
+    </script>
 </body>
 </html>

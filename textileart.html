@@ -33,32 +33,68 @@
         <h2 id="yarn_heading">Knit and Crochet</h2>
         <br>
         <div class="knit_and_crochet">
-            <img id="yarn_1" src="images/owl_friends.jpg" alt="two crochet owls with hats and scarves">
-            <img id="yarn_2" src="images/monkey.jpg" alt="a crochet monkey with a red shirt and scarf">
-            <img id="yarn_3" src="images/knit_scarf.jpg" alt="a folded knit scarf">
-
-
+            <img id="yarn_1" class="yarn_image" src="images/owl_friends.jpg" alt="two crochet owls with hats and scarves">
+            <img id="yarn_2" class="yarn_image" src="images/monkey.jpg" alt="a crochet monkey with a red shirt and scarf">
+            <img id="yarn_3" class="yarn_image" src="images/knit_scarf.jpg" alt="a folded knit scarf">
+            <div class="modal">
+                <span class="close">&times;</span>
+                <img class="modalImage" src="" alt="">
+            </div> 
         </div>
         <br>
         <h2 id="sewing_heading">Sewing</h2>
         <br>
         <div class="sewing">
-            <img id="sewing_1" src="images/drawstring_bag_1.jpg" alt="cloud, sun, and rainbow drawstring bag">
-            <img id="sewing_2" src="images/drawstring_bag_2.jpg" alt="apple, leaves, and vine drawstring bag">
-
+            <img id="sewing_1" class="sewing_image" src="images/drawstring_bag_1.jpg" alt="cloud, sun, and rainbow drawstring bag">
+            <img id="sewing_2" class="sewing_image" src="images/drawstring_bag_2.jpg" alt="apple, leaves, and vine drawstring bag">
+            <div class="modal">
+                <span class="close">&times;</span>
+                <img class="modalImage" src="" alt="">
+            </div> 
         </div>
         <br>
         <h2 id="felting_heading">Needle Felting</h2>
         <br>
         <div class="felting">
-            <img id="felting_1" src="images/two_dogs.jpg" alt="two needle felted dogs by a dog house">
-            <img id="felting_2" src="images/dogs_and_pond.jpg" alt="two needle felted dogs by a pond">
+            <img id="felting_1" class="felting_image" src="images/two_dogs.jpg" alt="two needle felted dogs by a dog house">
+            <img id="felting_2" class="felting_image" src="images/dogs_and_pond.jpg" alt="two needle felted dogs by a pond">
+            <div class="modal">
+                <span class="close">&times;</span>
+                <img class="modalImage" src="" alt="">
+            </div> 
         </div>
 
     </main>
+    <br>
     <footer>
-        <p class="footer_text">Danah's Art Portfolio - Explore paintings, drawings, and textile art!</p>
+        <p class="footer_text">Danah's Art Portfolio : Explore paintings, drawings, and textile art!</p>
     </footer>
+    <script>
+        let modalElement = document.querySelector(".modal");
+        let modalImage = document.querySelector(".modalImage");
+        Array.from(document.querySelectorAll(".yarn_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        Array.from(document.querySelectorAll(".sewing_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        Array.from(document.querySelectorAll(".felting_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        document.querySelector(".close").addEventListener("click", () => {
+            modalElement.style.display="none";
+        });
+
+    </script>
     
 </body>
 </html>

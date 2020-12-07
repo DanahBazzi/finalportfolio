@@ -35,8 +35,12 @@
         <br>
         <div id="img_background" class="background_color">
         <div class="pastels">
-            <img id="oil_pastel_1" class="modal_content" src="images/bunny_and_teddy_bear.jpg" alt="a bunny with a teddy bear">
-            <img id="oil_pastel_2" class="modal_content" src="images/sea_sunset_rocks.jpeg" alt="sunset by the sea with rocks">
+            <img id="oil_pastel_1" class="pastels_image" src="images/bunny_and_teddy_bear.jpg" alt="a bunny with a teddy bear">
+            <img id="oil_pastel_2" class="pastels_image" src="images/sea_sunset_rocks.jpeg" alt="sunset by the sea with rocks">
+            <div class="modal">
+                <span class="close">&times;</span>
+                <img class="modalImage" src="" alt="">
+            </div>
         </div>
     </div>
         <br>
@@ -44,9 +48,13 @@
         <br>
         <div class="background_color">
         <div class="pencil">
-            <img id="pencil_1" src="images/bunny_sketch.jpg" alt="pencil sketch of a spotted bunny">
-            <img id="pencil_2" src="images/bunny_sketch_2.jpg" alt="pencil sketch of a bunny's profile">
-            <img id="pencil_3" src="images/bunny_sketch_3.jpg" alt="another pencil sketch of a spotted bunny">
+            <img id="pencil_1" class="pencil_image" src="images/bunny_sketch.jpg" alt="pencil sketch of a spotted bunny">
+            <img id="pencil_2" class="pencil_image" src="images/bunny_sketch_2.jpg" alt="pencil sketch of a bunny's profile">
+            <img id="pencil_3" class="pencil_image" src="images/bunny_sketch_3.jpg" alt="another pencil sketch of a spotted bunny">
+            <div class="modal">
+                <span class="close">&times;</span>
+                <img class="modalImage" src="" alt="">
+            </div>
         </div>
         </div>
         <br>
@@ -54,27 +62,58 @@
         <p class="drawings_text">Meet Phoebe! She is the bunny in most of my pet drawings above, and she enjoys keeping me company as I work.</p>
         <br>
         <div class="phoebe_image_background">
-        <div class="phoebe_flip_card" tabindex="0">
+        <div class="phoebe_flip_card">
             <div class="phoebe_flip_card_inner">
                 <div class="phoebe_flip_card_front">
-                    <img id="bunny_photo_1" src="images/phoebe_2.jpg" alt="a profile photo of a brown and white bunny">
+                    <img id="bunny_photo_1" src="images/phoebe_2.jpg" alt="a profile photo of a brown and white bunny" tabindex="0">
                 </div>
                 <div class="phoebe_flip_card_back">Phoebe the Bunny</div>
                 <br>
             </div>
         </div>
         </div>
+        <br>
         <div class="background_color">
         <div class="phoebe">
-        <img id="bunny_photo" src="images/phoebe_bunny.png" alt="brown and white spotted bunny">
-        <img id="bunny_and_toys" src="images/phoebe_with_toys.png" alt="brown and white spotted bunny with toys">
+        <img id="bunny_photo" class="bunny_image"src="images/phoebe_bunny.png" alt="brown and white spotted bunny">
+        <img id="bunny_and_toys" class="bunny_image" src="images/phoebe_with_toys.png" alt="brown and white spotted bunny with toys">
+        <div class="modal">
+            <span class="close">&times;</span>
+            <img class="modalImage" src="" alt="">
+        </div>
         </div>
         </div>
     </main>
     <br>
     <footer>
-        <p class="footer_text">Danah's Art Portfolio - Explore paintings, drawings, and textile art!</p>
+        <p class="footer_text">Danah's Art Portfolio : Explore paintings, drawings, and textile art!</p>
     </footer>
+    <script>
+        let modalElement = document.querySelector(".modal");
+        let modalImage = document.querySelector(".modalImage");
+        Array.from(document.querySelectorAll(".pastels_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        Array.from(document.querySelectorAll(".pencil_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        Array.from(document.querySelectorAll(".bunny_image")).forEach(item => {
+            item.addEventListener("click", event => {
+                modalElement.style.display= "block";
+        modalImage.src = event.target.src;
+        });
+        });
+        document.querySelector(".close").addEventListener("click", () => {
+            modalElement.style.display="none";
+        });
+
+    </script>
     
 </body>
 </html>

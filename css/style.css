@@ -28,13 +28,13 @@ header {
 /*skip to main content link*/
 a.skip_to_main_content {
     position: absolute;
-    top: -20px;
-    left: 0;
+    top: -65px;
+    left: 10px;
     z-index: 1;
 }
 
 a.skip_to_main_content:focus {
-    top: 20px;
+    top: 65px;
 }
 
 /*style the navigation bar*/
@@ -178,7 +178,7 @@ a:visited {
 }
 
 /*style images when hovered over*/
-img:hover {
+.watercolors img:hover {
     opacity: 0.5;
     border: 2px solid black;
 }
@@ -218,14 +218,115 @@ footer {
     border-bottom: 3px solid #000000;
 }
 
-
 /*tablet view*/
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+@media only screen and (min-device-width: 768px){
+    
+    /*parallax image*/
+    .introductory_text, .concluding_text {
+        background-image: url("../images/parallax_image.jpg");
+        height: 100px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .drawings_text, #drawings_intro_text, .paintings_text, .textiles_text {
+        background-image: url("../images/parallax_image.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .drawings_text {
+        border-bottom: 3px solid #dda0dd;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+/*restyle the heading*/
+#portfolio_name {
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 2.3em;
+}
+
+/*restyle the navigation*/
+ul.webpage_navigation {
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.webpage_navigation li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+/*restyle intro texts on each page*/
+.introductory_text, .concluding_text, .drawings_intro, .drawings_text, .paintings_intro, .textiles_intro {
+    text-align: center;
+    padding: 15px;
+    font-weight: 400;
+}
+
+/*set images for tablet view*/
+.pastels img, .pencil img, .phoebe img, .watercolors img,
+.acrylics img, .knit_and_crochet img, .sewing img, .felting img, .flip_card img {
+    max-width: 100%;
+    height: 250px;
+}
+
+/*drawings, paintings, textile art page image galleries*/
+.watercolors, .acrylics, .pencil, .pastels,
+.phoebe, .knit_and_crochet, .sewing, .felting {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/*reformat the headings*/
+h2 {
+    text-align: center;
+}
+
+#pastel_heading, #pencil_heading, 
+#watercolors_heading, #acrylics_heading, #phoebe_heading,
+#yarn_heading, #sewing_heading, #felting_heading,
+ #drawings_heading, #welcome_heading, #paintings_heading, #textiles_heading { 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*set background color for image galleries*/    
+.background_color, .watercolors, .acrylics,
+.knit_and_crochet, .sewing, .felting, .phoebe_image_background {
+    background-color: linen;
+}
+
+.site_intro {
+    padding-left: 210px;
+}
+
+/*reformat the footer*/
+footer {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+}
+
+.footer_text {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 5;
+}
 
 }
 
 /*desktop view*/
-@media screen and (min-device-width: 1200px) and (max-device-width: 1600px){
+@media screen and (min-device-width: 850px) {
     ul.webpage_navigation, header {
         text-align: center;
     }
@@ -259,10 +360,15 @@ footer {
 
 /*reformat the intro header*/    
     #portfolio_name {
+        text-align: center;
         padding-top: 25px;
         padding-bottom: 25px;
         font-size: 2.2em;
     }
+
+.phoebe_flip_card {
+    padding-left: 250px;
+}
 
 /*parallax image*/
 .introductory_text, .concluding_text {
@@ -299,7 +405,6 @@ footer {
 .watercolors, .acrylics, .pencil, .pastels,
 .phoebe, .knit_and_crochet, .sewing, .felting {
     display: flex;
-    flex-basis: 200px;
     flex-flow: row wrap;
     justify-content: center;
 }
@@ -340,6 +445,10 @@ h2 {
     padding-left: 475px;
 }
 
+.webpage_navigation {
+    padding-left: 5px;
+}
+
 /*reformat the footer*/
 .footer {
     grid-template-columns: 300px 300px 300px 300px 300px 300px; 
@@ -347,7 +456,7 @@ h2 {
 
 .footer_text {
     grid-row: 1 / span 1;
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 5;
 }
 
 footer {
@@ -355,7 +464,10 @@ footer {
     padding-top: 25px;
 }
 
-
+.modal img {
+    max-width: 100%;
+    height: 400px;
+}
 }
 
 /*prefers reduced motion media query*/
@@ -376,6 +488,64 @@ footer {
     border: 1px solid #800080;
 }
 
+/*flip card*/
+.phoebe_flip_card {
+    background-color: transparent;
+    width: 268px;
+    height: 305px;
+    perspective: 1000px;
+    padding-right: 0px;
+    padding-left: 50px;
+}
+
+.phoebe_flip_card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.phoebe_flip_card:hover .phoebe_flip_card_inner {
+    transform: rotateY(180deg);
+}
+
+.phoebe_flip_card:focus-within .phoebe_flip_card_inner {
+    transform: rotateY(180deg);
+}
+
+.phoebe_flip_card_front, .phoebe_flip_card_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.phoebe_flip_card_front {
+    background-color: orchid;
+    color: black;
+}
+
+.phoebe_flip_card_back {
+    background-color: plum;
+    color: purple;
+    text-emphasis: bold;
+    transform: rotateY(180deg);
+}
+
+@media only screen and (min-width: 768px) {
+    .phoebe_flip_card {
+        padding-left: 240px;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    .phoebe_flip_card {
+        padding-left: 510px;
+    }
+}
 
 /*style for the form*/
 body {
@@ -467,46 +637,64 @@ body {
       line-height: 25vh;
       vertical-align:top;
    }
-  }
+  } 
 
-/*flip card*/
-.phoebe_flip_card {
-    background-color: transparent;
-    width: 268px;
-    height: 305px;
-    perspective: 1000px;
-    padding-left: 525px;
+
+/*modal image gallery*/
+.watercolors_image, .acrylic_image, .pastels_image, .pencil_image, .bunny_image, .yarn_image, .sewing_image,.felting_image {
+    cursor: pointer;
+    transition: 0.5s;
+    max-width: 100%;
+    height: 300px;
 }
 
-.phoebe_flip_card_inner {
-    position: relative;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    text-align: center;
-    transition: transform 1s;
-    transform-style: preserve-3d;
+    overflow: auto;
+    background-color: #000000;
+    background-color: rgba(0,0,0,0.9);
 }
 
-.phoebe_flip_card:hover .phoebe_flip_card_inner {
-    transform: rotateY(180deg);
+.modalImage {
+    margin: auto;
+    display: block;
+    max-width: 50%;
+    height: 60%;
+    max-width: 700px;
 }
 
-.phoebe_flip_card_front, .phoebe_flip_card_back {
+.close {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    top: 15px;
+    right: 35px;
+    color: linen;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.5s;
 }
 
-.phoebe_flip_card_front {
-    background-color: orchid;
-    color: black;
+.close:hover, .close:focus {
+    color: #800080;
+    cursor: pointer;
 }
 
-.phoebe_flip_card_back {
-    background-color: violet;
-    color: cornsilk;
-    transform: rotateY(180deg);
-}
+@media only screen and (max-width: 850px) {
+    .watercolors_image, .acrylic_image, .pastels_image, .pencil_image, .bunny_image, .yarn_image, .sewing_image, .felting_image {
+        cursor: pointer;
+        transition: 0.5s;
+        max-width: 100%;
+        height: auto;
+    }
 
+    .modal img {
+        width: 300px;
+        height: auto;
+    }
+}
